@@ -8,9 +8,16 @@ on:
   workflow_dispatch:
 
 jobs:
+  
   NextGen-Static-Analysis:
     runs-on: ubuntu-latest
     steps:
+    - name: Set up Python
+        # This is the version of the action for setting up Python, not the Python version.
+      uses: actions/setup-python@v5
+        with:
+          # Semantic version range syntax or exact version of a Python version
+          python-version: '3.6'
     - uses: actions/checkout@v3
     - name: Download ShiftLeft CLI
       run: |
@@ -18,7 +25,7 @@ jobs:
 
     - name: preZero Static Analysis
       run: |
-        # pip3 install -r requirements.txt
+        pip install -r requirements.txt
 
         ${GITHUB_WORKSPACE}/sl --version
         ${GITHUB_WORKSPACE}/sl analyze --strict --wait \
