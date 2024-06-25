@@ -10,7 +10,7 @@ on:
 jobs:
   
   NextGen-Static-Analysis:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Set up Python
         # This is the version of the action for setting up Python, not the Python version.
